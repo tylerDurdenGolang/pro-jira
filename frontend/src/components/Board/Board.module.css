@@ -1,0 +1,206 @@
+/* Основной контейнер */
+.mainContainer {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+}
+
+/* Боковая панель */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Категории */
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #f4f5f7;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category:hover {
+  background-color: #ebecf0;
+}
+
+/* Кнопка добавления */
+.addCategoryButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #0052cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.addCategoryButton:hover {
+  background-color: #0065ff;
+}
+
+/* Доски */
+.boardContainer {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+.board {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Заголовок доски */
+.boardTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #172b4d;
+  margin-bottom: 10px;
+}
+
+
+.item {
+  position: relative;
+  width: 90%; /* Занимает всю ширину колонки */
+  background-color: #ffffff; /* Белый фон */
+  padding: 12px 16px; /* Умеренные отступы */
+  margin-bottom: 10px; /* Расстояние между элементами */
+  border-left: 4px solid #0052cc; /* Синяя полоса для акцента */
+  border-radius: 3px; /* Минимальное скругление */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transition: box-shadow 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #f4f5f7; /* Светло-серый фон при наведении */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Усиление тени */
+}
+
+.item.draggable {
+  cursor: grab; /* Иконка для перетаскивания */
+}
+
+.item.draggable:active {
+  cursor: grabbing;
+  transform: scale(0.98); /* Легкое уменьшение при перетаскивании */
+}
+
+.item.hovered {
+  border: 2px dashed #0052cc; /* Акцентный синий цвет для перетаскиваемого элемента */
+}
+
+.item-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5e6c84; /* Серый цвет текста */
+  margin: 4px 0 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #172b4d; /* Тёмно-синий цвет заголовка */
+  margin: 0 0 5px;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.item-edit-form.input,
+.item-edit-form.textarea {
+  width: 100%;
+  font-size: 14px;
+  color: #172b4d;
+  border: 1px solid #dfe1e6;
+  border-radius: 3px;
+  padding: 8px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-edit-form.input:hover,
+.item-edit-form.textarea:hover {
+  border-color: #0052cc; /* Акцент на границе */
+}
+
+.item-edit-form.input:focus,
+.item-edit-form.textarea:focus {
+  border-color: #0052cc;
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2); /* Акцентный синий тень */
+}
+
+.delete-item-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px;
+  background-color: transparent; /* Убираем фон */
+  color: #ff5630; /* Красный цвет для текста */
+  border: none; /* Без границы */
+  cursor: pointer;
+  font-size: 16px; /* Увеличиваем размер для иконки */
+  line-height: 1;
+  border-radius: 50%; /* Делаем кнопку круглой */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-item-button:hover {
+  color: #ff7452; /* Более светлый красный при наведении */
+  transform: scale(1.1); /* Легкое увеличение */
+}
+
+.delete-item-button:before {
+  content: "\2715"; /* Юникод для значка "крестик" */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+.add-item-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #0052cc; /* Синий фон */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-item-button:hover {
+  background-color: #0065ff; /* Яркий синий */
+}
+
+.add-item-button:active {
+  transform: scale(0.98); /* Уменьшение при нажатии */
+}
